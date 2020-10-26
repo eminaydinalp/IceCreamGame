@@ -14,7 +14,6 @@ public class LevelOneGameController : MonoBehaviour
 
     public Button whiteButtonForm;
     public Button blackButtonForm;
-    public Button TransactionButtonForm;
     public Text matchText;
     
     Rigidbody whiteCube;
@@ -30,7 +29,6 @@ public class LevelOneGameController : MonoBehaviour
 
         whiteButtonForm.onClick.AddListener(whiteButton);
         blackButtonForm.onClick.AddListener(blackButton);
-        //TransactionButtonForm.onClick.AddListener(TransactionButton);
     }
 
     void whiteButton()
@@ -59,12 +57,9 @@ public class LevelOneGameController : MonoBehaviour
             yield return new WaitForSeconds(1.5f);
             if (whiteButtonCount == 1 && blackButtonCount == 1)
 			{
-                matchText.text = "Eşleşme Oranı : %100  Tebrikler!  \n" + "2.Levele Geçiyorsunuz...";
-                //Instantiate(TransactionButtonForm, TransactionPosition.transform.position, Quaternion.identity, GameObject.Find("Canvas").transform);
+                matchText.text = "Eşleşme Oranı : %100  Tebrikler!  \n" + "2.Levele Geçiyorsunuz...";  
                 StartCoroutine(Transaction());
             }
-               
-                
         }
 
         else if (whiteButtonCount == 2 && blackButtonCount == 0)
@@ -74,9 +69,7 @@ public class LevelOneGameController : MonoBehaviour
 			{
                 matchText.text = "Eşleşme Oranı : %50 \n" + "Level Tekrarı...";
                 StartCoroutine(TransactionTwo());
-
             }
-
         }
 
         else if (whiteButtonCount == 0 && blackButtonCount == 2)
@@ -86,9 +79,7 @@ public class LevelOneGameController : MonoBehaviour
 			{
                 matchText.text = "Eşleşme Oranı : %50\n" + "Level Tekrarı...";
                 StartCoroutine(TransactionTwo());
-
             }
-
         }
 
         else if (whiteButtonCount > 1 || blackButtonCount > 1)
@@ -100,18 +91,10 @@ public class LevelOneGameController : MonoBehaviour
                 StartCoroutine(TransactionTwo());
 
             }
-
         }
 
-        
     }
 
- //   void TransactionButton()
-	//{
- //       whiteButtonCount++;
- //       SceneManager.LoadScene("Level2");
-
- //   }
 
     IEnumerator Transaction()
 	{
@@ -126,7 +109,6 @@ public class LevelOneGameController : MonoBehaviour
         SceneManager.LoadScene("Level1");
 
     }
-
 
 }
 
